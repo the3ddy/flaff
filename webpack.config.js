@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const FlowBabelWebpackPlugin = require('flow-babel-webpack-plugin');
 
 module.exports = {
     entry: path.join(__dirname, './src/client/index.js'),
@@ -35,7 +36,8 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./src/client/index.html",
             filename: "./index.html"
-        })
+        }),
+        new FlowBabelWebpackPlugin()
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
