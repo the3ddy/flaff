@@ -1,10 +1,10 @@
 /**
  * *********************
  * 
- * @module Template
+ * @module Pagination
  * @author the3ddy
- * @date 5/21/2019
- * @description 
+ * @date 5/28/2019
+ * @description component that shows our pagination
  * 
  * *********************
  */
@@ -13,12 +13,12 @@
 import React from 'react';
 // components
 
-const Template = (props) => {
+const Pagination = (props) => {
   return (
     <div>
-      
+      Pagination
     </div>
   )
 }
 
-export default Template;
+export default Pagination;

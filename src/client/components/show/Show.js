@@ -25,7 +25,6 @@ const Show = (props: {
 }) => {
   return (
     <div>
-      {props.str}
       Show component
     </div>
   );

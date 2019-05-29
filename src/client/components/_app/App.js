@@ -11,37 +11,62 @@
 
 // dependencies
 import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 // components
 import Show from '../show/Show';
+import Header from '../header/Header';
+import Pagination from '../pagination/Pagination';
+import InfiniteScroll from '../infinite-scroll/InfiniteScroll';
+import Filter from '../filter/Filter';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            sample: {
-                arr: ['example1'],
-                str: 'example2',
-                obj: { key: 'example3' },
-                int: 0,
-                boolean: true
-            }
-        }
+constructor(props) {
+    super(props);
+    this.state = {
+        sample: {
+            arr: ['example1'],
+            str: 'example2',
+            obj: { key: 'example3' },
+            int: 0,
+            boolean: true
+        },
+        people: []
     }
+}
 
-    render() {
-        const { arr, str, obj, int, boolean } = this.state.sample;
-        return (
-            <div>
-                <Show
-                    arr={arr}
-                    str={str}
-                    obj={obj}
-                    int={int}
-                    boolean={boolean}
-                />
-            </div>
-        )
-    }
+componentDidMount() {
+    // sends ajax request to grab people data
+    fetch('/people')
+        .then(data => data.json())
+        .then(people => {
+            this.setState(prevState => {
+                return ({ people: people })
+            })
+        })
+}
+
+render() {
+    // destructuring
+    const { arr, str, obj, int, boolean } = this.state.sample;
+    console.log(this.state.people);
+    return (
+        <BrowserRouter>
+            <Show
+                arr={arr}
+                str={str}
+                obj={obj}
+                int={int}
+                boolean={boolean}
+            />
+            <Header />
+            <Switch>
+                <Route path="/pagination" component={Pagination} exact />
+                <Route path="/infinitescroll" component={InfiniteScroll} exact />
+                <Route path="/filter" component={Filter} exact />
+            </Switch>
+        </BrowserRouter>
+    )
+}
 }
 
 export default App;

@@ -1,10 +1,10 @@
 /**
  * *********************
  * 
- * @module Template
+ * @module Filter
  * @author the3ddy
- * @date 5/21/2019
- * @description 
+ * @date 5/28/2019
+ * @description component that shows our complex filtering
  * 
  * *********************
  */
@@ -13,12 +13,12 @@
 import React from 'react';
 // components
 
-const Template = (props) => {
+const Filter = (props) => {
   return (
     <div>
-      
+      Filtering
     </div>
   )
 }
 
-export default Template;
+export default Filter;

@@ -9,6 +9,9 @@
 [include]
 
 [libs]
+express
+react-router-dom
+cookie-parser
 
 [lints]
 
