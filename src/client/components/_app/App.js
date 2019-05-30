@@ -68,7 +68,9 @@ class App extends React.Component {
                         path="/" exact
                         render={props => <Pagination {...props} people={people} />}
                     />
-                    <Route path="/infinitescroll" component={InfiniteScroll} exact />
+                    <Route path="/infinitescroll" exact
+                        render={props => <InfiniteScroll {...props} people={people} />} 
+                    />
                     <Route path="/filter" component={Filter} exact />
                 </Switch>
             </BrowserRouter>
