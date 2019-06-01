@@ -9,13 +9,43 @@
  * *********************
  */
 
+// example data
+// {
+//   "_id": "5cedefed3ced023a8da4236c",
+//   "index": 0,
+//   "picture": "http://placehold.it/32x32",
+//   "age": 40,
+//   "eyeColor": "green",
+//   "name": {
+//     "first": "Bonner",
+//     "last": "Daugherty"
+//   }
+// },
+
+// @flow
 // dependencies
 import React from 'react';
 // components
 import Person from '../person/Person';
 
-class Pagination extends React.Component {
-  constructor(props) {
+// flow typing
+type Name = {
+  first: string,
+  last: string
+}
+
+type People = {
+  _id: string,
+  index: number,
+  picture: string,
+  age: number,
+  eyeColor: string,
+  name: Name
+}
+
+
+class Pagination extends React.Component<People> {
+  constructor(props: People) {
     super(props);
     this.state = {
       currPage: 0, // current page displayed

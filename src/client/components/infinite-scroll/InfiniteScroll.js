@@ -27,6 +27,7 @@ class InfiniteScroll extends React.Component {
   }
 
   componentDidMount() {
+    // adds an event listner that is checking scrolling
     window.addEventListener('scroll', this.onScroll, false);
     this.addingPeople();
   }
@@ -36,6 +37,8 @@ class InfiniteScroll extends React.Component {
   }
 
   onScroll = () => {
+    // this checks for conditional if hitting the bottom of the page
+    // and also if people has length greater than 0
     if (
       (window.innerHeight + window.scrollY) >=
       (document.body.offsetHeight) &&
@@ -45,6 +48,7 @@ class InfiniteScroll extends React.Component {
     }
   }
 
+  // function adds more people to the display array
   addingPeople() {
     // destructuring
     const { people } = this.props;
