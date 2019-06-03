@@ -9,19 +9,6 @@
  * *********************
  */
 
-// example data
-// {
-//   "_id": "5cedefed3ced023a8da4236c",
-//   "index": 0,
-//   "picture": "http://placehold.it/32x32",
-//   "age": 40,
-//   "eyeColor": "green",
-//   "name": {
-//     "first": "Bonner",
-//     "last": "Daugherty"
-//   }
-// },
-
 // @flow
 // dependencies
 import React from 'react';
@@ -43,19 +30,26 @@ type People = {
   name: Name
 }
 
+type State = {
+  currPage: number,
+  peoplePage: number
+}
 
-class Pagination extends React.Component<People> {
-  constructor(props: People) {
+type Props = {
+  people: Array<People>
+}
+
+class Pagination extends React.Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       currPage: 0, // current page displayed
       peoplePage: 10 // number of people displayed per page
     }
-    this.handleClick = this.handleClick.bind(this);
   }
 
   // handles the pagination button clicks
-  handleClick(i) {
+  handleClick = (i: number) => {
     this.setState(prevState => {
       return ({ currPage: i })
     })

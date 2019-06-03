@@ -1,13 +1,14 @@
 [ignore]
 <PROJECT_ROOT>/node_modules/express/*
 <PROJECT_ROOT>/node_modules/cookie-parser/*
-<PROJECT_ROOT>/npm/express_v4.16.x.js
-<PROJECT_ROOT>/npm/cookie-parser_v1.x.x.js
-<PROJECT_ROOT>/npm/react-router-dom_v5.x.x.js
+<PROJECT_ROOT>/flow-typed/npm/express_v4.16.x.js
+<PROJECT_ROOT>/flow-typed/npm/cookie-parser_v1.x.x.js
+<PROJECT_ROOT>/flow-typed/npm/react-router-dom_v5.x.x.js
 
 [include]
 
 [libs]
+flow-typed
 express
 react-router-dom
 cookie-parser

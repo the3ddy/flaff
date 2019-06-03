@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
-    "server": "nodemon ./src/server/server.js"
+    "server": "nodemon ./src/server/server.js",
+    "flow": "flow"
   },
   "author": "",
   "license": "ISC",
