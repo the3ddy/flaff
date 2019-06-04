@@ -14,7 +14,7 @@
 import React from 'react';
 // components
 
-const Show = (props: {
+type Props = {
   arr: string[],
   str: string,
   obj: {
@@ -22,12 +22,28 @@ const Show = (props: {
   },
   int: number,
   boolean: boolean 
-}) => {
-  return (
-    <div>
-      Show component
-    </div>
-  );
+}
+
+type State = {
+  message: string
+}
+
+class Show extends React.Component<Props, State> {
+  constructor(props: Props) {
+    super(props);
+    this.state = {
+      message: 'hey'
+    }
+  }
+
+  render() {
+    return (
+      <div>
+        <h3 className="showing">Show me something</h3>
+        <p>{this.state.message}</p>
+      </div>
+    )
+  }
 }
 
 export default Show;

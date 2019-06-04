@@ -7,7 +7,9 @@
     "start": "webpack-dev-server --mode development --open",
     "build": "webpack --mode production",
     "server": "nodemon ./src/server/server.js",
-    "flow": "flow"
+    "flow": "flow",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "author": "",
   "license": "ISC",
@@ -30,15 +32,32 @@
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^2.1.1",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.14.0",
     "flow-babel-webpack-plugin": "^1.1.1",
     "flow-bin": "^0.98.1",
     "html-webpack-plugin": "^3.2.0",
+    "jest": "^24.8.0",
+    "jest-fetch-mock": "^2.1.2",
     "node-sass": "^4.12.0",
     "nodemon": "^1.19.1",
+    "react-test-renderer": "^16.8.6",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.4.1"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "<rootDir>/src/client/__tests__/setup/setupEnzyme.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/src/client/__tests__/setup/"
+    ],
+    "automock": false,
+    "setupFiles": [
+      "<rootDir>/src/client/__tests__/setup/setupJest.js"
+    ]
   }
 }
